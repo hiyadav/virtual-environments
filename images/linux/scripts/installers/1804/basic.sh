@@ -58,6 +58,9 @@ apt-get install -y --no-install-recommends telnet
 echo "Install time"
 apt-get install -y --no-install-recommends time
 
+echo "Install tzdata"
+apt-get install -y --no-install-recommends tzdata
+
 echo "Install unzip"
 apt-get install -y --no-install-recommends unzip
 
@@ -70,8 +73,8 @@ apt-get install -y --no-install-recommends wget
 echo "Install zip"
 apt-get install -y --no-install-recommends zip
 
-echo "Install tzdata"
-apt-get install -y --no-install-recommends tzdata
+echo "Install zstd"
+apt-get install -y --no-install-recommends zstd
 
 echo "Install libxkbfile"
 apt-get install -y --no-install-recommends libxkbfile-dev
@@ -97,6 +100,9 @@ apt-get install -y --no-install-recommends xvfb
 echo "Install libgtk"
 apt-get install -y --no-install-recommends libgtk-3-0
 
+echo "Install tk"
+apt install -y tk
+
 echo "Install fakeroot"
 apt-get install -y --no-install-recommends fakeroot
 
@@ -118,9 +124,12 @@ apt-get install -y --no-install-recommends zsync
 echo "Install curl"
 apt-get install -y --no-install-recommends curl
 
+echo "Install parallel"
+apt-get install -y --no-install-recommends parallel
+
 # Run tests to determine that the software installed as expected
 echo "Testing to make sure that script performed as expected, and basic scenarios work"
-for cmd in curl file ftp jq netcat ssh rsync shellcheck sudo telnet time unzip wget zip; do
+for cmd in curl file ftp jq netcat ssh parallel rsync shellcheck sudo telnet time unzip wget zip; do
     if ! command -v $cmd; then
         echo "$cmd was not installed"
         exit 1
@@ -143,13 +152,15 @@ DocumentInstalledItemIndent "libunwind8"
 DocumentInstalledItemIndent "locales"
 DocumentInstalledItemIndent "netcat"
 DocumentInstalledItemIndent "openssh-client"
+DocumentInstalledItemIndent "parallel"
 DocumentInstalledItemIndent "rsync"
 DocumentInstalledItemIndent "shellcheck"
 DocumentInstalledItemIndent "sudo"
 DocumentInstalledItemIndent "telnet"
 DocumentInstalledItemIndent "time"
+DocumentInstalledItemIndent "tzdata"
 DocumentInstalledItemIndent "unzip"
 DocumentInstalledItemIndent "upx"
 DocumentInstalledItemIndent "wget"
 DocumentInstalledItemIndent "zip"
-DocumentInstalledItemIndent "tzdata"
+DocumentInstalledItemIndent "zstd"

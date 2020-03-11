@@ -12,6 +12,9 @@ export ACCEPT_EULA=Y
 # Install MySQL Client
 apt-get install mysql-client -y
 
+# InstallMySQL database development files
+apt-get install libmysqlclient-dev -y
+
 # Install MySQL Server
 MYSQL_ROOT_PASSWORD=root
 echo "mysql-server mysql-server/root_password password $MYSQL_ROOT_PASSWORD" | debconf-set-selections
@@ -41,3 +44,7 @@ echo "Lastly, documenting what we added to the metadata file"
 DocumentInstalledItem "MySQL ($(mysql --version))"
 DocumentInstalledItem "MySQL Server (user:root password:root)"
 DocumentInstalledItem "MS SQL Server Client Tools"
+
+# Disable mysql.service
+systemctl is-active --quiet mysql.service && systemctl stop mysql.service 
+systemctl disable mysql.service 

@@ -25,16 +25,18 @@ apt-fast install -y --no-install-recommends \
     locales \
     netcat \
     openssh-client \
+    parallel \
     rsync \
     shellcheck \
     sudo \
     telnet \
     time \
+    tzdata \
     unzip \
     upx \
     wget \
     zip \
-    tzdata
+    zstd
 
 # Electron / VSCode / GitHub Desktop prereqs
 apt-fast install -y --no-install-recommends \
@@ -46,6 +48,7 @@ apt-fast install -y --no-install-recommends \
     dbus \
     xvfb \
     libgtk-3-0 \
+    tk \
     fakeroot \
     dpkg \
     rpm \
@@ -55,7 +58,7 @@ apt-fast install -y --no-install-recommends \
 
 # Run tests to determine that the software installed as expected
 echo "Testing to make sure that script performed as expected, and basic scenarios work"
-for cmd in curl file ftp jq netcat ssh rsync shellcheck sudo telnet time unzip upx wget zip; do
+for cmd in curl file ftp jq netcat ssh parallel rsync shellcheck sudo telnet time unzip upx wget zip; do
     if ! command -v $cmd; then
         echo "$cmd was not installed"
         exit 1
@@ -78,13 +81,15 @@ DocumentInstalledItemIndent "libunwind8"
 DocumentInstalledItemIndent "locales"
 DocumentInstalledItemIndent "netcat"
 DocumentInstalledItemIndent "openssh-client"
+DocumentInstalledItemIndent "parallel"
 DocumentInstalledItemIndent "rsync"
 DocumentInstalledItemIndent "shellcheck"
 DocumentInstalledItemIndent "sudo"
 DocumentInstalledItemIndent "telnet"
 DocumentInstalledItemIndent "time"
+DocumentInstalledItemIndent "tzdata"
 DocumentInstalledItemIndent "unzip"
 DocumentInstalledItemIndent "upx"
 DocumentInstalledItemIndent "wget"
 DocumentInstalledItemIndent "zip"
-DocumentInstalledItemIndent "tzdata"
+DocumentInstalledItemIndent "zstd"
